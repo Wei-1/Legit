@@ -1,18 +1,18 @@
 # Legit
 
-a simple language to learn programming
+a simple language to learn to programme
 
 ## Legit as a Programming Language:
 
 Legit is designed to be a simple programming language for people to learn the concept of programming.
 
-The way Legit achievement this is by restricting the usage of local variables and forced each logical segment be moduled into a small function. By doing so, each function will only contains very simple logic.
+By restricting the use of local variables and forced each logical segment to be modulized into a small function, each function will only contain very simple logic.
 
-With the code teared down, Legit can be read and write with ease even with a small screen in the era of mobile phone.
+With the code torn down, Legit can be read and write with ease even with a small screen in the era of the mobile phone.
 
 ## Examples
 
-Before we start explaining the details, let's take a look at some examples.
+Before explaining the details, here are some examples.
 
 ### Example 1: Function Name, Input, Output
 
@@ -58,7 +58,16 @@ Func: ex5;
 Out: ex2();                             # output = 3
 ```
 
-## 
+## Comment
+
+In a line of Legit, everything after `#` does NOT count.
+
+```php
+Func: test_function;                    # this does not count
+In: a = 1;                              # this also does not count
+a = a + 1;                              # bla bla bla
+Out: a;                                 # still does not count
+```
 
 ## Function Name
 
@@ -70,7 +79,7 @@ Func: function_name;
 
 In this case, the name of the function is `function_name`.
 
-Function name can only contains words, numbers and `_`.
+Function names can only contain words, numbers and `_`.
 
 Chars such as `SPACE` and `+-*/\|'"~!@#$%^&()[]{}<>?:;.,` are NOT allowed as the name of a function.
 
@@ -78,11 +87,11 @@ Chars such as `SPACE` and `+-*/\|'"~!@#$%^&()[]{}<>?:;.,` are NOT allowed as the
 
 ### Input: `In:`
 
-In input declaration, multiple variables can be defined and all variables must be defined in the input `In:`.
+In input declaration, multiple Variables can be defined and all Variables must be defined in the input `In:`.
 
-Programmers will need to create a new function to separate local variables.
+Programmers will need to create a new function to separate local Variables.
 
-A default value can be assigned to a variable while initiating.
+A default value can be assigned to a Variable while initiating.
 
 ```php
 Func: test;
@@ -94,20 +103,20 @@ In this case, `test()` is `0`, `test(1)` is `3`, and `test(1, 1)` is `5`.
 
 Variables will be taken in one by one and can NOT be assigned in another order.
 
-Variable name can only contains words, numbers and `_`.
+Variable names can only contain words, numbers and `_`.
 
-Chars such as `SPACE` and `+-*/\|'"~!@#$%^&()[]{}<>?:;.,` are NOT allowed as the name of a variable.
+Chars such as `SPACE` and `+-*/\|'"~!@#$%^&()[]{}<>?:;.,` are NOT allowed as the name of a Variable.
 
-If the function do NOT need any variable, there is NO need for the input line.
+If the function does NOT need any Variable, there is NO need for the input line.
 
 ```php
 Func: return_1;
 Out: 1;
 ```
 
-Note that `In:` is optional, if `In:` is used, at least one variables will need to be defined. `In: ;` is NOT Legit.
+Note that `In:` is optional, if `In:` is used, at least one Variables will need to be defined. `In:;` is NOT Legit.
 
-However, whether the function have `In:` or NOT, a function should always be called with a `()`.
+However, whether the function has `In:` or NOT, a function should always be called with a `()`.
 
 ```php
 a = return_1();
@@ -115,25 +124,25 @@ a = return_1();
 
 ### Output: `Out:`
 
-Output is necessary for a Legit function.
+An Output is necessary for a Legit function.
 
-A function always need to return something. `Out: ;` is NOT Legit.
+A function always needs to return something. `Out:;` is NOT Legit.
 
-Output can return a mathametical operation of some variables.
+Output can return a mathematical operation of some Variables.
 
 ```php
 Func: sum_1_2_3;
 Out: 1 + 2 + 3;
 ```
 
-Output can only return one variable. Vector can be used when multiple variables need to be returned.
+Output can only return one Variable. A Vector can be used when multiple Variables need to be returned.
 
 ```php
 Func: return_1_2_3;
 Out: [1, 2, 3];
 ```
 
-Multiple output variables from a function can be assigned to one single variables.
+Multiple output Variables from a function can be assigned to one single Variable.
 
 ```php
 Func: sum_1_2_3_vector;
@@ -141,7 +150,7 @@ In: a = return_1_2_3();
 Out: a[0] + a[1] + a[2];
 ```
 
-In this case, variable `a` will become a vector.
+In this case, Variable `a` will become a Vector.
 
 ## Variable
 
@@ -158,7 +167,7 @@ d = 99999999999999999;                  # d = 99999999999999999
 
 In Legit, there is NO difference in Integer, Floating Number, or Long Number.
 
-The precision of a number is limited to `2^63`, roughly 17 digits.
+The precision of a Number is limited to `2^63`, roughly 17 digits.
 
 ### String:
 
@@ -168,9 +177,9 @@ b = "another" + " " + "string";         # b = "another string"
 c = a[0];                               # d = "t"
 ```
 
-String will always be inside a pair of double-quotes `""`.
+A String will always be inside a pair of double-quotes `""`.
 
-Each character in a string is still considered to be a string. `[N]` can be used to indicate the `N+1`th element in the string, which is a string with only one character.
+Each character in a String is still considered to be a String. `[N]` can be used to indicate the `N+1`th element in the String, which is a String with only one character.
 
 ### Vector:
 
@@ -182,11 +191,11 @@ d = [0, 1, 2, "0", "1", "2"];           # d = [0, 1, 2, "0", "1", "2"]
 e = [[0, 1, 2], ["0", "1", "2"]];       # e = [[0, 2, 3], ["0", "1", "2"]]
 ```
 
-Vector is an array of variables, and can only be created using `[]`.
+Vector is an array of Variables, and can only be created using `[]`.
 
-The variables inside a vector can be a Number, a String, or a Vector.
+The Variables inside a Vector can be a Number, a String, or a Vector.
 
-A vector without any variable can be defined with `[]`;
+A Vector without any Variable can be defined with `[]`;
 
 ## Variable Operation
 
@@ -206,55 +215,55 @@ Operations that will generate each data type will be listed below.
 
 ### Number:
 
-`+` will add the two numbers. If the first variable is a Number and the second variable is NOT, the compiler will throw an error.
+`+` will add the two Numbers. If the first Variable is a Number and the second Variable is NOT, the compiler will throw an error.
 
 ```php
 In: a = 1, b = 1;
 Out: a + b;                             # Out: 2
 ```
 
-`-` will minus the first number by the second number.
+`-` will minus the first Number by the second Number.
 
 ```php
 In: a = 2, b = 1;
 Out: a - b;                             # Out: 1
 ```
 
-`*` will multiply the two numbers.
+`*` will multiply the two Numbers.
 
 ```php
 In: a = 2, b = 3;
 Out: a * b;                             # Out: 6
 ```
 
-`/` will divide the first number by the second number.
+`/` will divide the first Number by the second Number.
 
 ```php
 In: a = 6, b = 2;
 Out: a / b;                             # Out: 3
 ```
 
-`%` will calcualte the remainder after dividing the first number by the second number.
+`%` will calculate the remainder after dividing the first Number by the second Number.
 
 ```php
 In: a = 5, b = 3;
 Out: a % b;                             # Out: 2
 ```
 
-`^` will times the first number by the power of the second number.
+`^` will time the first Number by the power of the second Number.
 
 ```php
 In: a = 2, b = 3;
 Out: a ^ b;                             # Out: 8
 ```
 
-`num()` function can be used to parse a string into a Number-type variable.
+`num()` function can be used to parse a String into a Number-type Variable.
 
 ```php
 Out: num("12345");                      # Out: 12345
 ```
 
-`size()` function can calculate the length of a vector.
+`size()` function can calculate the length of a Vector.
 
 ```php
 Out: size([1, 1, 1, 1, 1]);             # Out: 5
@@ -262,7 +271,7 @@ Out: size([1, 1, 1, 1, 1]);             # Out: 5
 
 ### String:
 
-`+` will add two strings together in to one string. If the first variable is a String and the second variable is NOT, the compiler will throw an error.
+`+` will add two Strings together into one String. If the first Variable is a String and the second Variable is NOT, the compiler will throw an error.
 
 ```php
 In: a = "this is ", b = "legit";
@@ -271,44 +280,44 @@ Out: a + b;                             # Out: "this is legit"
 
 The index of String starts from `0`.
 
-`[N]` can indicate the `N+1`th element in the string.
+`[N]` can indicate the `N+1`th element in the String.
 
 ```php
 In: a = "01234";
 Out: a[2];                              # Out: "2"
 ```
 
-`str()` function can be used to transform a variable into a String-type variable.
+`str()` function can be used to transform a Variable into a String-type Variable.
 
 ```php
 Out: str(12345);                        # Out: "12345"
 ```
 
-`inverse()` will inverse the order of characters in a string from left to right.
+`inverse()` will inverse the order of characters in a String from left to right.
 
 ```php
 Out: inverse("legit");                  # Out: "tigel"
 ```
 
-`takeLeft(, N)` will take the first `N` numbers of characters.
+`takeLeft(, N)` will take the first `N` Numbers of characters.
 
 ```php
 Out: takeLeft("legit", 3);              # Out: "leg"
 ```
 
-`takeRight(, N)` will take the last `N` numbers of characters.
+`takeRight(, N)` will take the last `N` Numbers of characters.
 
 ```php
 Out: takeRight("legit", 3);             # Out: "git"
 ```
 
-`dropLeft(, N)` will drop the first `N` numbers of characters.
+`dropLeft(, N)` will drop the first `N` Numbers of characters.
 
 ```php
 Out: dropLeft("legit", 3);              # Out: "it"
 ```
 
-`dropRight(, N)` will drop the last `N` numbers of characters.
+`dropRight(, N)` will drop the last `N` Numbers of characters.
 
 ```php
 Out: dropRight("legit", 3);             # Out: "le"
@@ -316,7 +325,7 @@ Out: dropRight("legit", 3);             # Out: "le"
 
 ### Vector:
 
-If the first variable is a Vector, `+` will push the second variable into the vector after the last element.
+If the first Variable is a Vector, `+` will push the second Variable into the Vector after the last element.
 
 ```php
 In: a = [0, 1], b = 2;
@@ -333,7 +342,7 @@ In: a = [0, 1], b = [2, 3];
 Out: a + b;                             # Out: [0, 1, [2, 3]]
 ```
 
-`++` can concate two Vectors. Binding the head of the second Vector to the tail of the first Vector.
+`++` can concatenate two Vectors. Binding the head of the second Vector to the tail of the first Vector.
 
 ```php
 In: a = [0, 1], b = [2, 3];
@@ -342,14 +351,14 @@ Out: a ++ b;                            # Out: [0, 1, 2, 3]
 
 The index of Vector starts from `0`.
 
-`[N]` can indicate the `N+1`th element in the vector.
+`[N]` can indicate the `N+1`th element in the Vector.
 
 ```php
 In: a = [0, 1, 2, 3];
 Out: a[2];                              # Out: 2
 ```
 
-Unlike String, elements getting from Vector will NOT necessary be a Vector.
+Unlike String, elements getting from Vector will NOT necessarily be a Vector.
 
 `inverse()` will inverse the order of the elements in the Vector from left to right.
 
@@ -357,25 +366,25 @@ Unlike String, elements getting from Vector will NOT necessary be a Vector.
 Out: inverse([0, 1, 2, 3]);             # Out: [3, 2, 1, 0]
 ```
 
-`takeLeft(, N)` will take the first `N` numbers of elements.
+`takeLeft(, N)` will take the first `N` Numbers of elements.
 
 ```php
 Out: takeLeft([0, 1, 2, 3], 3);         # Out: [0, 1, 2]
 ```
 
-`takeRight(, N)` will take the last `N` numbers of elements.
+`takeRight(, N)` will take the last `N` Numbers of elements.
 
 ```php
 Out: takeRight([0, 1, 2, 3], 3);        # Out: [1, 2, 3]
 ```
 
-`dropLeft(, N)` will drop the first `N` numbers of elements.
+`dropLeft(, N)` will drop the first `N` Numbers of elements.
 
 ```php
 Out: dropLeft([0, 1, 2, 3], 3);         # Out: [3]
 ```
 
-`dropRight(, N)` will drop the last `N` numbers of elements.
+`dropRight(, N)` will drop the last `N` Numbers of elements.
 
 ```php
 Out: dropRight([0, 1, 2, 3], 3);        # Out: [0]
@@ -383,7 +392,7 @@ Out: dropRight([0, 1, 2, 3], 3);        # Out: [0]
 
 ## Condition
 
-Condition in Legit only exit in two kinds of statements, `if` and `while`.
+Conditions in Legit only exit in two kinds of statements, `if` and `while`.
 
 Each condition statement will have a Decision and some Variable Operations.
 
@@ -393,13 +402,13 @@ if a > b: a = a + 1, b = b + 1;         # two variable operations
 Out: a + b;                             # Out: 1
 ```
 
-While we all love `switch` or `match`, it is NOT that readable in small screne since it natively contains a hierarchical structure.
+While we all love `switch` or `match`, it is NOT that readable in small screen since it natively contains a hierarchical structure.
 
-Also, there is NO `for` loop in Legit. Since `for` loop will often need to define another variable as the index or element in a vector, it is against the designing philosophy of Legit.
+Also, there is NO `for` loop in Legit. Since `for` loop will often need to define another Variable as the index or element in a Vector, it is against the designing philosophy of Legit.
 
 ### Relational Operator:
 
-`==` check if the first Variable is identical as the second Variable.
+`==` check if the first Variable is identical to the second Variable.
 
 ```php
 In: a = 0;
@@ -407,7 +416,7 @@ if 1 == 2: a = 1;
 Out: a;                                 # Out: 0
 ```
 
-`!=` check if the first Variable is NOT identical as the second Variable.
+`!=` check if the first Variable is NOT identical to the second Variable.
 
 ```php
 In: a = 0;
@@ -453,7 +462,7 @@ Out: [a, b];                            # Out: [1, 1]
 
 In condition operation, `&` is used as `AND` while `|` is used as `OR`.
 
-Since `true` or `false` is NOT a type of variables, logical operators can only exist in `if` or `while`.
+Since `true` or `false` is NOT a type of Variables, logical operators can only exist in `if` or `while`.
 
 ```php
 In: a = 0, b = 0;
@@ -474,7 +483,7 @@ The condition will be calculated as `(false and true) or (true and false)` => `f
 
 ### If, Else:
 
-`If` contains one Decision and some Variable Operstions.
+`If` contains one Decision and some Variable Operations.
 
 `:` is used to separate Decision and Variable Operations.
 
@@ -495,13 +504,13 @@ else: a = a + 2, b = b + 1;
 Out: [a, b];                            # Out: [3, 2]
 ```
 
-In this case, Legit will NOT execute the second variable operation `a = a + 1;`, and will execute the third variable operation `a = a + 2;` instead.
+In this case, Legit will NOT execute the second Variable operation `a = a + 1;`, and will execute the third Variable operation `a = a + 2;` instead.
 
 ### While:
 
 In Legit, while is the only loop function.
 
-`while` contains one Decision and some Variable Operstions.
+`while` contains one Decision and some Variable Operations.
 
 `:` is used to separate Decision and Variable Operations.
 
@@ -515,9 +524,9 @@ while a < 3: a = a * 2;
 Out: a;                                 # Out: 4
 ```
 
-The Variable Operation `a = a + 2` will be executed for two times, until `a` becomes `4` and is higher than `3`.
+The Variable Operation `a = a + 2` will be executed for two times until `a` becomes `4` and is higher than `3`.
 
-Here is an example of defining a function to sum up the Number in a vector.
+Here is an example of defining a function, to sum the Number in a Vector up.
 
 ```php
 Func: array_sum;
