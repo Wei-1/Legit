@@ -436,7 +436,7 @@ Out: a;                                 # Out: 1
 ```php
 In: a = 0, b = 0;
 if 1 >= 2: a = 1;
-if 1 >= 1: b = 1
+if 1 >= 1: b = 1;
 Out: [a, b];                            # Out: [0, 1]
 ```
 
