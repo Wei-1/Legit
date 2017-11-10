@@ -18,16 +18,16 @@ Before we start explaining the details, let's take a look at some examples.
 
 ```php
 Func: ex1;
-In: a;                          # input variable a
-Out: a;                         # output variable a
+In: a;                                  # input variable a
+Out: a;                                 # output variable a
 ```
 
 ### Example 2: Default Value, Variable Operation
 
 ```php
 Func: ex2;
-In: a = 1;                      # default a be 1 if no input value is assigned
-a = a + 2;                      # math operation expression
+In: a = 1;                              # default a be 1 if no input value is assigned
+a = a + 2;                              # math operation expression
 Out: a;
 ```
 
@@ -36,26 +36,26 @@ Out: a;
 ```php
 Func: ex3;
 In: a;
-if a > 2: a = a + 3;            # if a is bigger than 2
-else: a = a + 1;                # if a is not bigger than 2
-while a < 3: a = a + 1;         # a keeps adding 1 while a is smaller than 3
+if a > 2: a = a + 3;                    # if a is bigger than 2
+else: a = a + 1;                        # if a is not bigger than 2
+while a < 3: a = a + 1;                 # a keeps adding 1 while a is smaller than 3
 Out: a;
 ```
 
-### Example 4: Multiple Input Variables
+### Example 4: Multiple Input Variables, Vector Output
 
 ```php
 Func: ex4;
 In: a, b;                               # initiate 2 variables
 while a < 3: a = a + 1, b = b - 1;      # 2 operations in 1 condition
-Out: a + b;
+Out: [a, b];                            # vector output
 ```
 
 ### Example 5: No Input, Calling Another Function
 
 ```php
 Func: ex5;
-Out: ex2();             # output = 3
+Out: ex2();                             # output = 3
 ```
 
 ## 
@@ -517,3 +517,13 @@ Out: a;                                 # Out: 4
 
 The Variable Operation `a = a + 2` will be executed for two times, until `a` becomes `4` and is higher than `3`.
 
+Here is an example of defining a function to sum up the Number in a vector.
+
+```php
+Func: array_sum;
+In: a = [], b = 0, c = 0;
+while b < size(a): c = c + a[b], b = b + 1;
+Out: c;
+```
+
+With the function `array_sum` been defined, `array_sum([0, 1, 2])` will return `3`.
