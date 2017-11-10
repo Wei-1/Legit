@@ -98,7 +98,7 @@ Variable name can only contains words, numbers and `_`.
 
 Chars such as `SPACE` and `+-*/\|'"~!@#$%^&()[]{}<>?:;.,` are NOT allowed as the name of a variable.
 
-If the function do NOT need any variable, there is no need for the input line.
+If the function do NOT need any variable, there is NO need for the input line.
 
 ```php
 Func: return_1;
@@ -107,7 +107,7 @@ Out: 1;
 
 Note that `In:` is optional, if `In:` is used, at least one variables will need to be defined. `In: ;` is NOT Legit.
 
-However, whether the function have `In:` or not, a function should always be called with a `()`.
+However, whether the function have `In:` or NOT, a function should always be called with a `()`.
 
 ```php
 a = return_1();
@@ -117,7 +117,7 @@ a = return_1();
 
 Output is necessary for a Legit function.
 
-A function always need to return something. `Out: ;` is not Legit.
+A function always need to return something. `Out: ;` is NOT Legit.
 
 Output can return a mathametical operation of some variables.
 
@@ -156,7 +156,7 @@ c = 3.14159;                            # c = 3.14159
 d = 99999999999999999;                  # d = 99999999999999999
 ```
 
-In Legit, there is no difference in Integer, Floating Number, or Long Number.
+In Legit, there is NO difference in Integer, Floating Number, or Long Number.
 
 The precision of a number is limited to `2^63`, roughly 17 digits.
 
@@ -191,11 +191,11 @@ A vector without any variable can be defined with `[]`;
 ## Variable Operation
 
 ```php
-In: a = 1, b = 1;
+In: a = 1, b = 2;
 a = 3;                                  # a = 3
 a = a + 1;                              # a = 4
-a = b;                                  # a = 1
-b = a;                                  # b = 1
+a = b;                                  # a = 2
+b = a;                                  # b = 2
 ```
 
 Operations will be run through one by one in Top-Down order.
@@ -206,7 +206,7 @@ Operations that will generate each data type will be listed below.
 
 ### Number:
 
-`+` will add the two numbers. If the first variable is a Number and the second variable is not, the compiler will throw an error.
+`+` will add the two numbers. If the first variable is a Number and the second variable is NOT, the compiler will throw an error.
 
 ```php
 In: a = 1, b = 1;
@@ -234,6 +234,13 @@ In: a = 6, b = 2;
 Out: a / b;                             # Out: 3
 ```
 
+`%` will calcualte the remainder after dividing the first number by the second number.
+
+```php
+In: a = 5, b = 3;
+Out: a % b;                             # Out: 2
+```
+
 `^` will times the first number by the power of the second number.
 
 ```php
@@ -255,7 +262,7 @@ Out: size([1, 1, 1, 1, 1]);             # Out: 5
 
 ### String:
 
-`+` will add two strings together in to one string. If the first variable is a String and the second variable is not, the compiler will throw an error.
+`+` will add two strings together in to one string. If the first variable is a String and the second variable is NOT, the compiler will throw an error.
 
 ```php
 In: a = "this is ", b = "legit";
@@ -342,7 +349,7 @@ In: a = [0, 1, 2, 3];
 Out: a[2];                              # Out: 2
 ```
 
-Unlike String, elements getting from Vector will not necessary be a Vector.
+Unlike String, elements getting from Vector will NOT necessary be a Vector.
 
 `inverse()` will inverse the order of the elements in the Vector from left to right.
 
@@ -373,3 +380,140 @@ Out: dropLeft([0, 1, 2, 3], 3);         # Out: [3]
 ```php
 Out: dropRight([0, 1, 2, 3], 3);        # Out: [0]
 ```
+
+## Condition
+
+Condition in Legit only exit in two kinds of statements, `if` and `while`.
+
+Each condition statement will have a Decision and some Variable Operations.
+
+```php
+In: a = 0, b = 1;
+if a > b: a = a + 1, b = b + 1;         # two variable operations
+Out: a + b;                             # Out: 1
+```
+
+While we all love `switch` or `match`, it is NOT that readable in small screne since it natively contains a hierarchical structure.
+
+Also, there is NO `for` loop in Legit. Since `for` loop will often need to define another variable as the index or element in a vector, it is against the designing philosophy of Legit.
+
+### Relational Operator:
+
+`==` check if the first Variable is identical as the second Variable.
+
+```php
+In: a = 0;
+if 1 == 2: a = 1;
+Out: a;                                 # Out: 0
+```
+
+`!=` check if the first Variable is NOT identical as the second Variable.
+
+```php
+In: a = 0;
+if 1 != 2: a = 1;
+Out: a;                                 # Out: 1
+```
+
+`>` check if the first Number is bigger than the second Number.
+
+```php
+In: a = 0;
+if 1 > 2: a = 1;
+Out: a;                                 # Out: 0
+```
+
+`<` check if the first Number is smaller than the second Number.
+
+```php
+In: a = 0;
+if 1 < 2: a = 1;
+Out: a;                                 # Out: 1
+```
+
+`>=` check if the first Number is bigger than or equal to the second Number.
+
+```php
+In: a = 0, b = 0;
+if 1 >= 2: a = 1;
+if 1 >= 1: b = 1
+Out: [a, b];                            # Out: [0, 1]
+```
+
+`<=` check if the first Number is smaller than or equal to the second Number.
+
+```php
+In: a = 0, b = 0;
+if 1 <= 2: a = 1;
+if 1 <= 1: b = 1;
+Out: [a, b];                            # Out: [1, 1]
+```
+
+### Logical Operator:
+
+In condition operation, `&` is used as `AND` while `|` is used as `OR`.
+
+Since `true` or `false` is NOT a type of variables, logical operators can only exist in `if` or `while`.
+
+```php
+In: a = 0, b = 0;
+if 1 > 2 & 2 > 1: a = 1;                # false and true => false
+if 1 > 2 | 2 > 1: b = 1;                # false or true => true
+Out: [a, b];                            # Out: [0, 1]
+```
+
+To combine all these logical operators, one can use `()` to declare the calculation priority.
+
+```php
+In: a = 1, b = 2;
+if (a > 1 & b > 1) | (a < 2 & b < 2): a = a + 1;
+Out: a;                                 # Out: 1
+```
+
+The condition will be calculated as `(false and true) or (true and false)` => `false or false` => `false`.
+
+### If, Else:
+
+`If` contains one Decision and some Variable Operstions.
+
+`:` is used to separate Decision and Variable Operations.
+
+Variable Operations are separated by `,`.
+
+```php
+In: a = 1, b = 1;
+if a > 0: a = a + 1, b = b + 2;
+Out: [a, b];                            # Out: [2, 3]
+```
+
+`if` condition can exist alone, but `else` condition always come with an `if`.
+
+```php
+In: a = 1, b = 1;
+if a > 1: a = a + 1, b = b + 2;
+else: a = a + 2, b = b + 1;
+Out: [a, b];                            # Out: [3, 2]
+```
+
+In this case, Legit will NOT execute the second variable operation `a = a + 1;`, and will execute the third variable operation `a = a + 2;` instead.
+
+### While:
+
+In Legit, while is the only loop function.
+
+`while` contains one Decision and some Variable Operstions.
+
+`:` is used to separate Decision and Variable Operations.
+
+Variable Operations are separated by `,`.
+
+Legit will keep running the Variable Operations when the Decision is true.
+
+```php
+In: a = 1;
+while a < 3: a = a * 2;
+Out: a;                                 # Out: 4
+```
+
+The Variable Operation `a = a + 2` will be executed for two times, until `a` becomes `4` and is higher than `3`.
+
