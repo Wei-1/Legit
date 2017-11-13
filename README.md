@@ -152,7 +152,7 @@ Out: a[0] + a[1] + a[2];
 
 In this case, Variable `a` will become a Vector.
 
-An evaluation value can be assigned to the output variable.
+An evaluation value can be assigned to the output Variable.
 
 ```php
 In: a = 3;
@@ -163,9 +163,9 @@ Evaluation is one interesting feature in Legit.
 
 An evaluation value can be defined right after the evaluation sign `?`.
 
-When the default value of the input variables is not set, setting evaluation value will throw an error.
+When the default value of the input Variables is not set, setting evaluation value will throw an error.
 
-When the default values of the input variables can NOT result in the evaluation value after all the operations, the compiler will throw an error as well.
+When the default values of the input Variables can NOT result in the evaluation value after all the operations, the compiler will throw an error as well.
 
 The evaluation value can be either a Number, a String or a Vector.
 
@@ -541,15 +541,15 @@ while a < 3: a = a * 2;
 Out: a ? 4;
 ```
 
-The Variable Operation `a = a + 2` will be executed for two times until `a` becomes `4` and is higher than `3`.
+The Variable Operation `a = a * 2` will be executed for two times until `a` becomes `4` and is higher than `3`.
 
 Here is an example of defining a function, to sum the Number in a Vector up.
 
 ```php
-Func: array_sum;
+Func: vector_sum;
 In: a = [], b = 0, c = 0;
 while b < size(a): c = c + a[b], b = b + 1;
 Out: c ? 0;
 ```
 
-With the function `array_sum` been defined, `array_sum([0, 1, 2])` will return `3`.
+With the function `vector_sum` been defined, `vector_sum([0, 1, 2])` will return `3`.
