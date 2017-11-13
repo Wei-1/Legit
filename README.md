@@ -1,4 +1,4 @@
-# Legit
+![alt tag](./asset/legit_banner.png)
 
 a simple language to learn to programme
 
@@ -22,13 +22,13 @@ In: a;                                  # input variable a
 Out: a;                                 # output variable a
 ```
 
-### Example 2: Default Value, Variable Operation
+### Example 2: Default Value, Variable Operation, Evaluation Value
 
 ```php
 Func: ex2;
 In: a = 1;                              # default a be 1 if no input value is assigned
 a = a + 2;                              # math operation expression
-Out: a;
+Out: a ? 3;                             # check if the default value matchs the output
 ```
 
 ### Example 3: If, Else, While Loop
@@ -152,6 +152,23 @@ Out: a[0] + a[1] + a[2];
 
 In this case, Variable `a` will become a Vector.
 
+An evaluation value can be assigned to the output variable.
+
+```php
+In: a = 3;
+Out: a ? 3;
+```
+
+Evaluation is one interesting feature in Legit.
+
+An evaluation value can be defined right after the evaluation sign `?`.
+
+When the default value of the input variables is not set, setting evaluation value will throw an error.
+
+When the default values of the input variables can NOT result in the evaluation value after all the operations, the compiler will throw an error as well.
+
+The evaluation value can be either a Number, a String or a Vector.
+
 ## Variable
 
 Variables in Legit has three different Types, `NUMBER`, `STRING`, or `VECTOR`.
@@ -219,54 +236,54 @@ Operations that will generate each data type will be listed below.
 
 ```php
 In: a = 1, b = 1;
-Out: a + b;                             # Out: 2
+Out: a + b ? 2;
 ```
 
 `-` will minus the first Number by the second Number.
 
 ```php
 In: a = 2, b = 1;
-Out: a - b;                             # Out: 1
+Out: a - b ? 1;
 ```
 
 `*` will multiply the two Numbers.
 
 ```php
 In: a = 2, b = 3;
-Out: a * b;                             # Out: 6
+Out: a * b ? 6;
 ```
 
 `/` will divide the first Number by the second Number.
 
 ```php
 In: a = 6, b = 2;
-Out: a / b;                             # Out: 3
+Out: a / b ? 3;
 ```
 
 `%` will calculate the remainder after dividing the first Number by the second Number.
 
 ```php
 In: a = 5, b = 3;
-Out: a % b;                             # Out: 2
+Out: a % b ? 2;
 ```
 
 `^` will time the first Number by the power of the second Number.
 
 ```php
 In: a = 2, b = 3;
-Out: a ^ b;                             # Out: 8
+Out: a ^ b ? 8;
 ```
 
 `num()` function can be used to parse a String into a Number-type Variable.
 
 ```php
-Out: num("12345");                      # Out: 12345
+Out: num("12345") ? 12345;
 ```
 
 `size()` function can calculate the length of a Vector.
 
 ```php
-Out: size([1, 1, 1, 1, 1]);             # Out: 5
+Out: size([1, 1, 1, 1, 1]) ? 5;
 ```
 
 ### String:
@@ -275,7 +292,7 @@ Out: size([1, 1, 1, 1, 1]);             # Out: 5
 
 ```php
 In: a = "this is ", b = "legit";
-Out: a + b;                             # Out: "this is legit"
+Out: a + b ? "this is legit";
 ```
 
 The index of String starts from `0`.
@@ -284,43 +301,43 @@ The index of String starts from `0`.
 
 ```php
 In: a = "01234";
-Out: a[2];                              # Out: "2"
+Out: a[2] ? "2";
 ```
 
 `str()` function can be used to transform a Variable into a String-type Variable.
 
 ```php
-Out: str(12345);                        # Out: "12345"
+Out: str(12345) ? "12345";
 ```
 
 `inverse()` will inverse the order of characters in a String from left to right.
 
 ```php
-Out: inverse("legit");                  # Out: "tigel"
+Out: inverse("legit") ? "tigel";
 ```
 
 `takeLeft(, N)` will take the first `N` Numbers of characters.
 
 ```php
-Out: takeLeft("legit", 3);              # Out: "leg"
+Out: takeLeft("legit", 3) ? "leg";
 ```
 
 `takeRight(, N)` will take the last `N` Numbers of characters.
 
 ```php
-Out: takeRight("legit", 3);             # Out: "git"
+Out: takeRight("legit", 3) ? "git";
 ```
 
 `dropLeft(, N)` will drop the first `N` Numbers of characters.
 
 ```php
-Out: dropLeft("legit", 3);              # Out: "it"
+Out: dropLeft("legit", 3) ? "it";
 ```
 
 `dropRight(, N)` will drop the last `N` Numbers of characters.
 
 ```php
-Out: dropRight("legit", 3);             # Out: "le"
+Out: dropRight("legit", 3) ? "le";
 ```
 
 ### Vector:
@@ -329,24 +346,24 @@ If the first Variable is a Vector, `+` will push the second Variable into the Ve
 
 ```php
 In: a = [0, 1], b = 2;
-Out: a + b;                             # Out: [0, 1, 2]
+Out: a + b ? [0, 1, 2];
 ```
 
 ```php
 In: a = [0, 1], b = "2";
-Out: a + b;                             # Out: [0, 1, "2"]
+Out: a + b ? [0, 1, "2"];
 ```
 
 ```php
 In: a = [0, 1], b = [2, 3];
-Out: a + b;                             # Out: [0, 1, [2, 3]]
+Out: a + b ? [0, 1, [2, 3]];
 ```
 
 `++` can concatenate two Vectors. Binding the head of the second Vector to the tail of the first Vector.
 
 ```php
 In: a = [0, 1], b = [2, 3];
-Out: a ++ b;                            # Out: [0, 1, 2, 3]
+Out: a ++ b ? [0, 1, 2, 3];
 ```
 
 The index of Vector starts from `0`.
@@ -355,7 +372,7 @@ The index of Vector starts from `0`.
 
 ```php
 In: a = [0, 1, 2, 3];
-Out: a[2];                              # Out: 2
+Out: a[2] ? 2;
 ```
 
 Unlike String, elements getting from Vector will NOT necessarily be a Vector.
@@ -363,31 +380,31 @@ Unlike String, elements getting from Vector will NOT necessarily be a Vector.
 `inverse()` will inverse the order of the elements in the Vector from left to right.
 
 ```php
-Out: inverse([0, 1, 2, 3]);             # Out: [3, 2, 1, 0]
+Out: inverse([0, 1, 2, 3]) ? [3, 2, 1, 0];
 ```
 
 `takeLeft(, N)` will take the first `N` Numbers of elements.
 
 ```php
-Out: takeLeft([0, 1, 2, 3], 3);         # Out: [0, 1, 2]
+Out: takeLeft([0, 1, 2, 3], 3) ? [0, 1, 2];
 ```
 
 `takeRight(, N)` will take the last `N` Numbers of elements.
 
 ```php
-Out: takeRight([0, 1, 2, 3], 3);        # Out: [1, 2, 3]
+Out: takeRight([0, 1, 2, 3], 3) ? [1, 2, 3];
 ```
 
 `dropLeft(, N)` will drop the first `N` Numbers of elements.
 
 ```php
-Out: dropLeft([0, 1, 2, 3], 3);         # Out: [3]
+Out: dropLeft([0, 1, 2, 3], 3) ? [3];
 ```
 
 `dropRight(, N)` will drop the last `N` Numbers of elements.
 
 ```php
-Out: dropRight([0, 1, 2, 3], 3);        # Out: [0]
+Out: dropRight([0, 1, 2, 3], 3) ? [0];
 ```
 
 ## Condition
@@ -399,7 +416,7 @@ Each condition statement will have a Decision and some Variable Operations.
 ```php
 In: a = 0, b = 1;
 if a > b: a = a + 1, b = b + 1;         # two variable operations
-Out: a + b;                             # Out: 1
+Out: a + b ? 1;
 ```
 
 While we all love `switch` or `match`, it is NOT that readable in small screen since it natively contains a hierarchical structure.
@@ -413,7 +430,7 @@ Also, there is NO `for` loop in Legit. Since `for` loop will often need to defin
 ```php
 In: a = 0;
 if 1 == 2: a = 1;
-Out: a;                                 # Out: 0
+Out: a ? 0;
 ```
 
 `!=` check if the first Variable is NOT identical to the second Variable.
@@ -421,7 +438,7 @@ Out: a;                                 # Out: 0
 ```php
 In: a = 0;
 if 1 != 2: a = 1;
-Out: a;                                 # Out: 1
+Out: a ? 1;
 ```
 
 `>` check if the first Number is bigger than the second Number.
@@ -429,7 +446,7 @@ Out: a;                                 # Out: 1
 ```php
 In: a = 0;
 if 1 > 2: a = 1;
-Out: a;                                 # Out: 0
+Out: a ? 0;
 ```
 
 `<` check if the first Number is smaller than the second Number.
@@ -437,7 +454,7 @@ Out: a;                                 # Out: 0
 ```php
 In: a = 0;
 if 1 < 2: a = 1;
-Out: a;                                 # Out: 1
+Out: a ? 1;
 ```
 
 `>=` check if the first Number is bigger than or equal to the second Number.
@@ -446,7 +463,7 @@ Out: a;                                 # Out: 1
 In: a = 0, b = 0;
 if 1 >= 2: a = 1;
 if 1 >= 1: b = 1;
-Out: [a, b];                            # Out: [0, 1]
+Out: [a, b] ? [0, 1];
 ```
 
 `<=` check if the first Number is smaller than or equal to the second Number.
@@ -455,7 +472,7 @@ Out: [a, b];                            # Out: [0, 1]
 In: a = 0, b = 0;
 if 1 <= 2: a = 1;
 if 1 <= 1: b = 1;
-Out: [a, b];                            # Out: [1, 1]
+Out: [a, b] ? [1, 1];
 ```
 
 ### Logical Operator:
@@ -468,7 +485,7 @@ Since `true` or `false` is NOT a type of Variables, logical operators can only e
 In: a = 0, b = 0;
 if 1 > 2 & 2 > 1: a = 1;                # false and true => false
 if 1 > 2 | 2 > 1: b = 1;                # false or true => true
-Out: [a, b];                            # Out: [0, 1]
+Out: [a, b] ? [0, 1];
 ```
 
 To combine all these logical operators, one can use `()` to declare the calculation priority.
@@ -476,7 +493,7 @@ To combine all these logical operators, one can use `()` to declare the calculat
 ```php
 In: a = 1, b = 2;
 if (a > 1 & b > 1) | (a < 2 & b < 2): a = a + 1;
-Out: a;                                 # Out: 1
+Out: a ? 1;
 ```
 
 The condition will be calculated as `(false and true) or (true and false)` => `false or false` => `false`.
@@ -492,7 +509,7 @@ Variable Operations are separated by `,`.
 ```php
 In: a = 1, b = 1;
 if a > 0: a = a + 1, b = b + 2;
-Out: [a, b];                            # Out: [2, 3]
+Out: [a, b] ? [2, 3];
 ```
 
 `if` condition can exist alone, but `else` condition always come with an `if`.
@@ -501,7 +518,7 @@ Out: [a, b];                            # Out: [2, 3]
 In: a = 1, b = 1;
 if a > 1: a = a + 1, b = b + 2;
 else: a = a + 2, b = b + 1;
-Out: [a, b];                            # Out: [3, 2]
+Out: [a, b] ? [3, 2];
 ```
 
 In this case, Legit will NOT execute the second Variable operation `a = a + 1;`, and will execute the third Variable operation `a = a + 2;` instead.
@@ -521,7 +538,7 @@ Legit will keep running the Variable Operations when the Decision is true.
 ```php
 In: a = 1;
 while a < 3: a = a * 2;
-Out: a;                                 # Out: 4
+Out: a ? 4;
 ```
 
 The Variable Operation `a = a + 2` will be executed for two times until `a` becomes `4` and is higher than `3`.
@@ -532,7 +549,7 @@ Here is an example of defining a function, to sum the Number in a Vector up.
 Func: array_sum;
 In: a = [], b = 0, c = 0;
 while b < size(a): c = c + a[b], b = b + 1;
-Out: c;
+Out: c ? 0;
 ```
 
 With the function `array_sum` been defined, `array_sum([0, 1, 2])` will return `3`.
