@@ -280,10 +280,14 @@ Out: a ^ b ? 8;
 Out: num("12345") ? 12345;
 ```
 
-`size()` function can calculate the length of a Vector.
+`size()` function can calculate the length of a String or a Vector.
 
 ```php
-Out: size([1, 1, 1, 1, 1]) ? 5;
+Out: size("Legit") ? 5;
+```
+
+```php
+Out: size([1, 3, 9, 1, 7]) ? 5;
 ```
 
 ### String:
@@ -291,8 +295,8 @@ Out: size([1, 1, 1, 1, 1]) ? 5;
 `+` will add two Strings together into one String. If the first Variable is a String and the second Variable is NOT, the compiler will throw an error.
 
 ```php
-In: a = "this is ", b = "legit";
-Out: a + b ? "this is legit";
+In: a = "this is ", b = "Legit";
+Out: a + b ? "this is Legit";
 ```
 
 The index of String starts from `0`.
@@ -308,36 +312,6 @@ Out: a[2] ? "2";
 
 ```php
 Out: str(12345) ? "12345";
-```
-
-`inverse()` will inverse the order of characters in a String from left to right.
-
-```php
-Out: inverse("legit") ? "tigel";
-```
-
-`takeLeft(, N)` will take the first `N` Numbers of characters.
-
-```php
-Out: takeLeft("legit", 3) ? "leg";
-```
-
-`takeRight(, N)` will take the last `N` Numbers of characters.
-
-```php
-Out: takeRight("legit", 3) ? "git";
-```
-
-`dropLeft(, N)` will drop the first `N` Numbers of characters.
-
-```php
-Out: dropLeft("legit", 3) ? "it";
-```
-
-`dropRight(, N)` will drop the last `N` Numbers of characters.
-
-```php
-Out: dropRight("legit", 3) ? "le";
 ```
 
 ### Vector:
@@ -376,36 +350,6 @@ Out: a[2] ? 2;
 ```
 
 Unlike String, elements getting from Vector will NOT necessarily be a Vector.
-
-`inverse()` will inverse the order of the elements in the Vector from left to right.
-
-```php
-Out: inverse([0, 1, 2, 3]) ? [3, 2, 1, 0];
-```
-
-`takeLeft(, N)` will take the first `N` Numbers of elements.
-
-```php
-Out: takeLeft([0, 1, 2, 3], 3) ? [0, 1, 2];
-```
-
-`takeRight(, N)` will take the last `N` Numbers of elements.
-
-```php
-Out: takeRight([0, 1, 2, 3], 3) ? [1, 2, 3];
-```
-
-`dropLeft(, N)` will drop the first `N` Numbers of elements.
-
-```php
-Out: dropLeft([0, 1, 2, 3], 3) ? [3];
-```
-
-`dropRight(, N)` will drop the last `N` Numbers of elements.
-
-```php
-Out: dropRight([0, 1, 2, 3], 3) ? [0];
-```
 
 ## Condition
 
@@ -543,7 +487,9 @@ Out: a ? 4;
 
 The Variable Operation `a = a * 2` will be executed for two times until `a` becomes `4` and is higher than `3`.
 
-Here is an example of defining a function, to sum the Number in a Vector up.
+Lots of operations can be implemented with while loop, the following are some examples.
+
+#### Sum the Number in a Vector
 
 ```php
 Func: vector_sum;
@@ -553,3 +499,14 @@ Out: c ? 0;
 ```
 
 With the function `vector_sum` been defined, `vector_sum([0, 1, 2])` will return `3`.
+
+#### Inverse a String
+
+```php
+Func: inverse_str;
+In: s = "", o = "", i = 0;
+while i < size(s): i = i + 1, o = o + s[size(s) - i];
+Out: o ? "";
+```
+
+`inverse_str("hello")` will return `"olleh"`.
