@@ -70,7 +70,7 @@ def test_function(a = 1):               # this does not count
 
 ## Function Name
 
-The name of the Function is defined in `Func:`.
+The name of the Function is defined after `def`.
 
 ```python
 def function_name():
