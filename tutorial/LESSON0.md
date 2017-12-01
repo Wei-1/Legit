@@ -2,7 +2,7 @@
 
 Let's take a look at the structure of Legit.
 
-```php
+```python
 def lesson0(a = 1):
     a = a + 1
     return a
